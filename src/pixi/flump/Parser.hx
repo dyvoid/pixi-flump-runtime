@@ -16,7 +16,7 @@ class Parser{
 
 	public static function parse(resolution:Float, ?loadFromCache:Bool = true){
 		return function(resource:Resource, next:Void->Void){
-			if(resource.data == null || resource.isJson == false) return;
+			if(resource.data == null || resource.type != ResourceType.JSON) return;
 			if(!resource.data.hasField("md5") || !resource.data.hasField("movies") || !resource.data.hasField("textureGroups") || !resource.data.hasField("frameRate")) return;
 			
 			var lib:FlumpLibrary = FlumpLibrary.create(resource.data, resolution);
