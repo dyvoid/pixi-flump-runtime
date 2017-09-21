@@ -1,8 +1,8 @@
+-lib pixijs:4.5.0
 
 -cp ./src
 -js bin/pixi-flump.js
 -main PixiFlumpMain
--lib pixijs
 
 --macro include('pixi.flump')
 
