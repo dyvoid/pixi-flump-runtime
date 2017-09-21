@@ -10,12 +10,13 @@ import pixi.core.math.shapes.Rectangle;
 import pixi.core.sprites.Sprite;
 import pixi.core.ticker.Ticker;
 import pixi.flump.Resource;
+import haxe.extern.EitherType;
 
 
 @:access(pixi.flump.Resource)
 class Movie extends Container implements IFlumpMovie {
 
-	public var player:MoviePlayer;
+	public var player:MoviePlayer;	
 	private var symbol:MovieSymbol;
 	private var layers = new Map<Layer, Container>();
 	private var layerLookup = new Map<String, Container>();
@@ -27,11 +28,14 @@ class Movie extends Container implements IFlumpMovie {
 	private var resolution:Float;
 	private var resource:Resource;
 	private var resourceId:String;
+	
+	private var autoUpdate:Bool = true;
 
-	public function new(symbolId:String, resourceId:String = null){
+	public function new(symbolId:String, resourceId:String = null, autoUpdate:Bool = true){
 		
 		super();
 		this.resourceId = resourceId;
+		this.autoUpdate = autoUpdate;
 
 		if(resourceId == null){
 			resource = Resource.getResourceForMovie(symbolId);
@@ -230,6 +234,11 @@ class Movie extends Container implements IFlumpMovie {
 	public function getLabelFrame(label:String):UInt{
 		return player.getLabelFrame(label);
 	}
+	
+	public function update(dt:Float):Void
+	{
+		player.advanceTime(dt * animationSpeed);
+	}
 
 
 	/////////////////////////////////////////////////////
@@ -239,21 +248,28 @@ class Movie extends Container implements IFlumpMovie {
 	/////////////////////////////////////////////////////
 
 	private function tick(){
-		player.advanceTime(ticker.elapsedMS * animationSpeed);
+		update(ticker.elapsedMS * animationSpeed);
 	}
 
 
 	private function onAdded(to){
 		once("removed", onRemoved);
-		ticker.add(tick);
+		
+		if (autoUpdate)
+		{			
+			ticker.add(tick);
+		}
 	}
 
 
 	private function onRemoved(from){
 		once("added", onAdded);
-		ticker.remove(tick);
+		
+		if (autoUpdate)
+		{	
+			ticker.remove(tick);
+		}
 	}
-
 
 
 	/////////////////////////////////////////////////////
@@ -401,7 +417,7 @@ class Movie extends Container implements IFlumpMovie {
 	}
 	
 
-	override public function destroy(): Void {
+	override public function destroy(?options:EitherType<Bool, DestroyOptions>): Void {
 		stop();
 		onComplete = null;
 		for (layer in layers) layer.removeChildren();
