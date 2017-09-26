@@ -8,6 +8,7 @@ import pixi.core.utils.Utils;
  * Filter that reproduce the behaviour of Tint in Adobe Flash/Animate
  * @author Mathieu Anthoine
  */
+@:build(JsProp.all())
 class AnimateTintFilter extends Filter
 {
 	public var multiplier (default,null):Float;

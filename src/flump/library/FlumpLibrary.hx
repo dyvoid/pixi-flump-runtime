@@ -5,7 +5,7 @@ import flump.json.FlumpJSON;
 import flump.library.Label;
 using Lambda;
 
-
+@:build(JsProp.all())
 class FlumpLibrary{
 	/** accuracy coefficient applied on keyframes' ::time property */
 	static inline var TIME_ACCURACY_COEF						: Float								= 10;

@@ -2,7 +2,7 @@ package flump.library;
 
 import flump.library.FlumpLibrary;
 
-
+@:build(JsProp.all())
 class MovieSymbol extends Symbol{
 
 	public var layers = new Array<Layer>();

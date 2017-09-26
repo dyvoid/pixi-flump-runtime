@@ -14,6 +14,7 @@ import haxe.extern.EitherType;
 
 
 @:access(pixi.flump.Resource)
+@:build(JsProp.all())
 class Movie extends Container implements IFlumpMovie {
 
 	public var player:MoviePlayer;	

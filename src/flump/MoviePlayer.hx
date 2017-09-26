@@ -10,7 +10,7 @@ import flump.library.MovieSymbol;
 import pixi.flump.Movie;
 using Std;
 
-
+@:build(JsProp.all())
 class MoviePlayer{
 
 	private var symbol:MovieSymbol;

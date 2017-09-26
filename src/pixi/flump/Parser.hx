@@ -11,6 +11,7 @@ import pixi.loaders.Resource;
 using Reflect;
 
 @:access(pixi.flump.Resource)
+@:build(JsProp.all())
 class Parser{
 
 

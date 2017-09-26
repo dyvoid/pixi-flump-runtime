@@ -4,6 +4,7 @@ import flump.library.FlumpLibrary;
 
 
 @:access(pixi.flump.Resource)
+@:build(JsProp.all())
 class Sprite extends pixi.core.sprites.Sprite{
 
 	public var symbolId:String;

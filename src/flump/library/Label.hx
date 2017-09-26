@@ -1,5 +1,6 @@
 package flump.library;
 
+@:build(JsProp.all())
 class Label{
 
 	public var name:String;

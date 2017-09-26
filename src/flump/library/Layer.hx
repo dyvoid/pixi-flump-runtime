@@ -1,6 +1,7 @@
 package flump.library;
 import flump.filters.AnimateTintFilter;
 
+@:build(JsProp.all())
 class Layer{
 
 	public var keyframes = new Array<Keyframe>();

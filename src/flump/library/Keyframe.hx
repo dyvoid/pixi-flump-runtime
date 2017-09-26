@@ -1,6 +1,6 @@
 package flump.library;
 
-
+@:build(JsProp.all())
 class Keyframe{
 
 	public var layer:Layer;

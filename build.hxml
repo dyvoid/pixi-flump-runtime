@@ -6,5 +6,6 @@
 
 --macro include('pixi.flump')
 
+-D analyzer-optimize
 -D doc-gen
 -xml docs.xml

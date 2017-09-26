@@ -16,6 +16,7 @@ using Type;
 
 
 @:access(pixi.flump.Movie)
+@:build(JsProp.all())
 class Resource{
 	
 	private var library:FlumpLibrary;
