@@ -2026,7 +2026,7 @@ pixi_flump_Resource.getResourceForMovie = function(symbolId) {
 			return resource1;
 		}
 	}
-	throw new js__$Boot_HaxeError("Movie: " + symbolId + "does not exists in any loaded flump resources.");
+	throw new js__$Boot_HaxeError("Movie: " + symbolId + " does not exist in any loaded flump resources.");
 };
 pixi_flump_Resource.getResourceForSprite = function(symbolId) {
 	var _this = pixi_flump_Resource.resources;
@@ -2038,7 +2038,7 @@ pixi_flump_Resource.getResourceForSprite = function(symbolId) {
 			return resource1;
 		}
 	}
-	throw new js__$Boot_HaxeError("Sprite: " + symbolId + " does not exists in any loaded flump resources.");
+	throw new js__$Boot_HaxeError("Sprite: " + symbolId + " does not exist in any loaded flump resources.");
 };
 pixi_flump_Resource.prototype = {
 	createMovie: function(id) {

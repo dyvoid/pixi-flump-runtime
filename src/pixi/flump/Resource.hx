@@ -58,7 +58,7 @@ class Resource{
 				return resource;
 			}
 		}
-		throw("Movie: " + symbolId + "does not exists in any loaded flump resources.");
+		throw("Movie: " + symbolId + " does not exist in any loaded flump resources.");
 	}
 
 
@@ -68,7 +68,7 @@ class Resource{
 				return resource;
 			}
 		}
-		throw("Sprite: " + symbolId + " does not exists in any loaded flump resources.");
+		throw("Sprite: " + symbolId + " does not exist in any loaded flump resources.");
 	}
 	
 
